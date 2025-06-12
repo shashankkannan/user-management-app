@@ -1,0 +1,59 @@
+# ----------- Update user -----------
+# @app.route('/users/<int:id>', methods=['PUT', 'OPTIONS'])
+# @jwt_required()
+# def update_user(id):
+#     current_user = get_jwt_identity()
+#     if current_user != str(id):
+#         return jsonify({'error': 'Unauthorized'}), 403
+
+#     data = request.get_json()
+#     if not data:
+#         return jsonify({'message': 'No data provided'}), 400
+
+#     cur = mysql.connection.cursor()
+#     cur.execute("SELECT * FROM users WHERE id = %s", (id,))
+#     user = cur.fetchone()
+
+#     if not user:
+#         return jsonify({'message': 'User not found'}), 404
+
+#     fields = []
+#     values = []
+
+#     allowed_fields = ['username', 'password', 'name', 'email']
+#     for field in allowed_fields:
+#         if field in data:
+#             value = data[field]
+#             if field == 'password':
+#                 value = bcrypt.generate_password_hash(value).decode('utf-8')
+#             fields.append(f"{field}=%s")
+#             values.append(value)
+
+#     if not fields:
+#         return jsonify({'message': 'No valid fields to update'}), 400
+
+#     values.append(id)
+#     sql = f"UPDATE users SET {', '.join(fields)} WHERE id=%s"
+#     cur.execute(sql, values)
+#     mysql.connection.commit()
+#     cur.close()
+
+#     return jsonify({'message': 'User updated successfully'})
+
+# ----------- Delete user -----------
+# @app.route('/users/<int:id>', methods=['DELETE', 'OPTIONS'])
+# @jwt_required(optional=True)
+# def delete_user(id):
+
+#     if request.method == 'OPTIONS':
+#         return jsonify({'ok': True}), 200
+    
+#     current_user = get_jwt_identity()
+#     if current_user != str(id):
+#         return jsonify({'error': 'Unauthorized'}), 403
+
+#     cur = mysql.connection.cursor()
+#     cur.execute("DELETE FROM users WHERE id=%s", (id,))
+#     mysql.connection.commit()
+#     cur.close()
+#     return jsonify({'message': 'User deleted'})

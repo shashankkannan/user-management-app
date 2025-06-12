@@ -1,0 +1,57 @@
+# Global
+*.log
+*.env
+.env.
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+_pycache_/
+*.pyc
+.DS_Store
+.vscode/
+.idea/
+*.sqlite3
+
+# Python / Flask
+backend/instance/
+backend/.pytest_cache/
+backend/_pycache_/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/*.db
+backend/migrations/
+
+# Virtual environments
+venv/
+.env/
+.venv/
+pip-wheel-metadata/
+*.egg-info/
+
+# Postman / Newman
+newman/*-report.html
+newman/*.json
+*.postman_environment.json
+
+# Node / Vite / React
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Pytest + Selenium/Playwright
+tests/_pycache_/
+tests/.pytest_cache/
+tests/test-results/
+tests/.playwright/
+
+# Playwright specific
+playwright-report/
+test-results/
+.playwright/
+
+# OS / Editor
+Thumbs.db
+ehthumbs.db
+desktop.ini
